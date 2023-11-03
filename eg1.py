@@ -24,23 +24,23 @@ if (choice == 'B'):
     print(numbers[0:3])  # on choice-B user will get first 3 numbers
 
 if (choice == 'C'):
-    oddsum = [i for i in numbers if i % 2 == 1]
-    print(sum(oddsum))  # on choice-C user will get sum of odd numbers
+    sum_of_odd_numbers = [number for number in numbers if number % 2 == 1]
+    print(sum(sum_of_odd_numbers))  # on choice-C user will get sum of odd numbers
 
 if (choice == 'D'):
-    Items = []
-    DuplicateItems = []
+    items = []
+    duplicate_items = []
 
-    for i in numbers:
-        if i not in Items:
-            Items.append(i)
-        elif i not in DuplicateItems:
-            DuplicateItems.append(i)
-    print(DuplicateItems)  # on choice-D user will get number of duplicate numbers
+    for number in numbers:
+        if number not in items:
+            items.append(number)
+        elif number not in duplicate_items:
+            duplicate_items.append(number)
+    print(len(duplicate_items))  # on choice-D user will get number of duplicate numbers
 
 if (choice == 'E'):
-    Items = []
-    for i in numbers:
-        if i not in Items:
-            Items.append(i)
-    print(Items)  # on choice-E user can Display list without duplicate numbers
+    items = []
+    for number in numbers:
+        if number not in items:
+            items.append(number)
+    print(items)  # on choice-E user can Display list without duplicate numbers
