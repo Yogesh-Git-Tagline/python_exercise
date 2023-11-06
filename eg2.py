@@ -1,41 +1,43 @@
+
 """You are given a list of person names. Your task is to find out the three most frequent and three least frequent names."""
 
+person_names = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Taylor', 'Anderson', 'Thomas', 'Jackson', 'White']   #created list with person names  
 
-names = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Taylor', 'Anderson', 'Thomas', 'Jackson', 'White']   #created list with person names  
+print('Name List=',person_names)      #here we will see the list of persons 
 
-print('Name List=',names)      #here we will see the list of persons 
+length_of_items=[]     #created empty list for store the len of each element
+item_frequency={}      #created for stor the item count with its length
 
-LengthOfItems=[]     #created empty list for store the len of each element
+for name in person_names:
+    length_of_items.append(len(name))   #storing the length of each item in list
 
-#below empty lists created for store the equal length
-Length5=[]  #item with length 5
-Length6=[]  #item with length 6
-Length7=[]  #item with length 7
-Length8=[]  #item with length 8
+print("Name lengths:",length_of_items)
 
-#this loop is for storing the item length in their allocated list
-for i in names:
-    LengthOfItems.append(len(i))
-    if(len(i)==5):
-       Length5.append(i)
-    elif(len(i)==6):
-        Length6.append(i)
-    elif(len(i)==7):
-        Length7.append(i)
-    elif(len(i)==8):
-        Length8.append(i)
+for item in length_of_items:
+    item_frequency[item]=length_of_items.count(item)  #storing the item count with its length as key-value
 
-print(LengthOfItems)    #here we see the list of length with each item
+def second_item(element): 
+    return element[1]       #it returning sencond item i.e name count to sort frequent names
 
+most_frequent_lengths=sorted(item_frequency.items(), key=second_item, reverse=True)[:3] #it sorting each item frequency based on value in reverse order
 
-#now we print the three most frequent name lenghts
-print("The three most frequent name lenghts are:")
-print(len(Length5),"names of length 5:",Length5)
-print(len(Length6),"names of length 5:",Length6)
-print(len(Length8),"names of length 5:",Length8)
+least_frequent_lengths=sorted(item_frequency.items(), key=second_item)[:3]  #it sorting each item frequency based on value 
 
-#now we print the three least frequent name lenghts
-print("The three least frequent name lenghts are:")
-print(len(Length7),"names of length 5:",Length7)
-print(len(Length8),"names of length 5:",Length8)
-print(len(Length6),"names of length 5:",Length6)
+most_frequent_names={}
+least_frequent_names={}
+
+#below loops are assigning th list of names as value with key of their length
+for item in  most_frequent_lengths:
+    most_frequent_names[item[0]]=[name for name in person_names if(len(name)==item[0])]
+
+for item in  least_frequent_lengths:
+    least_frequent_names[item[0]]=[name for name in person_names if(len(name)==item[0])]
+
+#finally it shows three most and least frequent name in list format
+print("The three most frequent name lengths are:")
+for length, names in most_frequent_names.items():
+    print(len(names),"names of length",length,":",names)
+
+print("The three least frequent name lengths are:")
+for length, names in least_frequent_names.items():
+    print(len(names),"names of length",length,":",names)
