@@ -1,36 +1,32 @@
 """Create a recursive function which returns the n-th Fibonacci number. [Fibonacci
 sequence: 1, 1, 2, 3, 5, 8, 13, 21, ...]"""
 
+store = {0: 0, 1: 1}  #this dictionary is for store sum of pervious two terms
 
-# def Fibbonaci_fun(n):
-#    if n <= 1:
-#        return n
-#    else:
-#        return Fibbonaci_fun(n-1) + Fibbonaci_fun(n-2) #adding number with previous number by calling function itself
+def fibbonaci_function(item):
+    if item in store:  
+        return store[item]
+    store[item] = fibbonaci_function(item - 1) + fibbonaci_function(item - 2)  #adding number with previous number by calling function itself and will update store_dictionary
+    return store[item]
 
-# end = 60
-# for i in range(end):
-#     print(Fibbonaci_fun(i))
+term=60                                     #given term we want to find fibbonaci number on it
 
-"""
-Above program not able to find 60th term, so i used dictionary to store each sum of pervious two terms
-"""
+for element in range(term+1):
+    item=fibbonaci_function(element)       #it sending the elemenet one by one as an argument
 
-store = {0: 0, 1: 1}  #this store-dictionary used to store each sum of pervious two terms
+print(store[term])                          #it will shows the fibonacci number of provided term
 
-def Fibbonaci_fun(n):
-    if n in store:  
-        return store[n]
-    store[n] = Fibbonaci_fun(n - 1) + Fibbonaci_fun(n - 2)  #adding number with previous number by calling function itself and will update store_dictionary
-    return store[n]
+#-------------------------------------------------------------------------
 
-FibonaciSeries=[]   #list for append the comming fibonacci number
-end=60
+"""Create a recursion function that calculate the sum of numbers present in the list."""
 
-for i in range(60+1):
-    ele=Fibbonaci_fun(i)       #it sending the elemenet one by one as an argument
-    FibonaciSeries.append(ele) #it adding comming fibonacci element in list 
+def calculate_sum(numbers):
+   if len(numbers) == 1:        #checking the length of list
+        return numbers[0]       #it returning last value when length of list is 1
+   else:
+        return numbers[0] + calculate_sum(numbers[1:]) #it adding 0th index of list with passing list except 0th index value to add it with 0th index
 
-print(store)   #it print the item with their fibbonaci number
-print(FibonaciSeries)  #it will shows the fibonacci number till user number
+numbers = [23, 44, 5, 67, 1, 1, 2, 4, 5]   #given list
+print(calculate_sum(numbers))               #calling and passing list to function
+
 
