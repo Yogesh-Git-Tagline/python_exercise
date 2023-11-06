@@ -1,46 +1,62 @@
 """Create a class name Number with the following methods."""
 
 
-from functools import reduce  #importing reduce from functool to work with reduce module
+# importing reduce from functool to work with reduce module
+from functools import reduce
 
-#class creation
+# class creation
 class Number:
-    def __init__(self,numbers):  #constructor for assign number list in number variable
-        self.numbers=numbers   
+    def __init__(self, numbers):  # constructor for assign number list in number variable
+        self.numbers = numbers
 
-    def get(self):              #get method is returning list of numbers
+    def get(self):  # get method is returning list of numbers
         return self.numbers
-    
-    def change_original_values(self,func): #this method gives function from argument to work with map method
-        mp=list(map(func,self.numbers))   #map method is changing all values and we convert those values them into list
-        return mp                         #returning the list of changed values
 
-    def filter_values(self,filter_func):    #this method gives function from argument to work with filter method
-        fil=list(filter(filter_func,self.numbers))  #filter method is filters values and we convert those values in list
-        return fil                                #returning the list of filtred values
+    # this method gives function from argument to work with map method
+    def change_original_values(self, function):
+        # map method is changing all values and we convert those values them into list
+        map_values = list(map(function, self.numbers))
+        return map_values  # returning the list of changed values
 
-    def compound_the_numbers(self,reduce_func):   #this method gives function from argument to work with reduce method
-        red=reduce(reduce_func,self.numbers)    #reduce method will gives single value
-        return red                              #returning that single value
- 
-    def sort(self):                             #this function is for only sort the list of number
+    # this method gives function from argument to work with filter method
+    def filter_values(self, filter_function):
+        # filter method is filters values and we convert those values in list
+        filtered_values = list(filter(filter_function, self.numbers))
+        return filtered_values  # returning the list of filtred values
+
+    # this method gives function from argument to work with reduce method
+    def compound_the_numbers(self, reduce_function):
+        # reduce method will gives single value
+        reduce_values = reduce(reduce_function, self.numbers)
+        return reduce_values  # returning that single value
+
+    def sort_numbers(self):  # this function is for only sort the list of number
         return sorted(self.numbers)
 
-if __name__ == "__main__":                        #this checking the current module is __main__ or not
-    
-    numbers = [2, 5, 1, 66, 22, 11, 10]             #list initialization
 
-    n1=Number(numbers)                          #object creation of Number and pssing the list as argument
+if __name__ == "__main__":  # this checking the current module is __main__ or not
 
-    print("Numbers=",n1.get())                  #getting the numbers of list
+    numbers = [2, 5, 1, 66, 22, 11, 10]  # list initialization
 
-    double=lambda x:x+x                         #lambda function for making double values in list
-    print("New double values:",n1.change_original_values(func=double)) #calling function and passing above lamda function
+    # object creation of Number and pssing the list as argument
+    num = Number(numbers)
 
-    oddnum=lambda x:x%2==1                       #lambda function for filter out odd numbers in list
-    print("Filtered odd values:",n1.filter_values(filter_func=oddnum)) #calling function and passing above lamda function
+    print("Numbers=", num.get())  # getting the numbers of list
 
-    comp=lambda a,b:a+b                         #lambda function for return compound value of list
-    print("Compounded value:",n1.compound_the_numbers(reduce_func=comp))  #calling function and passing above lamda function
+    # lambda function for making double values in list
+    def make_double(x): return x+x
+    # calling function and passing above lamda function
+    print("New double values:", num.change_original_values(function=make_double))
 
-    print("Sorted list:",n1.sort())             #it calling the sort method to display sorted list
+    # lambda function for filter out odd numbers in list
+    def odd_number(x): return x % 2 == 1
+    # calling function and passing above lamda function
+    print("Filtered odd values:", num.filter_values(filter_function=odd_number))
+
+    # lambda function for return compound value of list
+    def compound_number(a, b): return a+b
+    # calling function and passing above lamda function
+    print("Compounded value:", num.compound_the_numbers(reduce_function=compound_number))
+
+    # it calling the sort method to display sorted list
+    print("Sorted list:", num.sort_numbers())
