@@ -24,8 +24,9 @@ for i in range(n):
     print()                     #makes new line after finish one execution of loop
 
 
+#_____________________________________________________________________________________
 
-"""it will make dimond"""
+
 n = 3   
 for i in range(n-1): 
    for j in range(i, n): 
@@ -50,9 +51,9 @@ for i in range(n):
 
 
 
+#_____________________________________________________________________________________
 
 
-"""it will make left traingle"""
 n=5
 for i in range(n): 
     for j in range (i+1) :
@@ -64,10 +65,10 @@ for i in range(n):
     print ()                             #makes new line after finish one execution of loop
 
 
+#_____________________________________________________________________________________
 
-"""it will make square border only"""
+
 n=5                                  #number of * user want
-
 #both loops iterates over given n
 for i in range(n):
     for j in range(n):
@@ -79,8 +80,9 @@ for i in range(n):
 
 
 
+#_____________________________________________________________________________________
 
-"""it will make left traingle with 1 to 15 number"""
+
 one = 1    #first position
 line = 5   #how many rows will be in traingle
 stop = 2   #to take a break with each row
