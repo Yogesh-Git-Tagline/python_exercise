@@ -9,9 +9,8 @@ email_symbols = re.compile(r'([A-Za-z0-9_-])+@[A-Za-z0-9]+(\.[A-Z|a-z]{2,3})')
 def check_email(email):
     is_valid=re.fullmatch(email_symbols, email)   #is Valid is filter out the correct email 
     if is_valid:
-      return True        #if any correct email is found then function will satisfied and return true
-    else:
-      return False       #if all email is found as invalid then function will return false
+      return True      #if any correct email is found then function will satisfied and return true
+    return False       #if all email is found as invalid then function will return false
 
 valid_emails=[]     #list for store valid emails from given list of emails
 
