@@ -8,28 +8,8 @@ pairs=[]    #it will store pair whose sum is n
 for number in numbers:
     for item in range(len(numbers)):
         if(number+numbers[item]==n):
-            pairs.append([number,numbers[item]])  #it store the two number whose sum is n as list
+            #now it checking pair is not exist inside pairs list
+            if not [number,numbers[item]] in pairs and not [numbers[item],number] in pairs:         
+                    pairs.append([number,numbers[item]])  #it store the two number whose sum is n as list
 
-
-duplicate_pairs=[]       #list for store duplicate pairs
-final_pairs=[]           #list for add pairs without duplicate
-for pair in pairs:
-    if pair not in final_pairs:
-        final_pairs.append(pair)     #storing pairs without duplicate
-    elif pair not in duplicate_pairs:
-        duplicate_pairs.append(pair)
-
-sorted_pairs=[]        
-for pair in final_pairs:
-    sorted_pairs.append(sorted(pair))  #it store the sorted pairs in final list
-   
-#then it will remove the duplicate pairs again by below loop
-filter_duplicate_pairs=[]         
-result=[]
-for pair in sorted_pairs:
-    if pair not in result:
-        result.append(pair)          #storing pairs without duplicate
-    elif pair not in filter_duplicate_pairs:
-        filter_duplicate_pairs.append(pair)
-
-print(result)  #shows the element pairs whose sum is = n,without come twice
+print(pairs)            #shows the element pairs whose sum is = n,without come twice"""
