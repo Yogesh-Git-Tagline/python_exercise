@@ -44,17 +44,17 @@ if __name__ == "__main__":  # this checking the current module is __main__ or no
     print("Numbers=", num.get())  # getting the numbers of list
 
     # lambda function for making double values in list
-    def make_double(x): return x+x
+    make_double=lambda x: x+x
     # calling function and passing above lamda function
     print("New double values:", num.change_original_values(function=make_double))
 
     # lambda function for filter out odd numbers in list
-    def odd_number(x): return x % 2 == 1
+    odd_number=lambda x: x % 2 == 1
     # calling function and passing above lamda function
     print("Filtered odd values:", num.filter_values(filter_function=odd_number))
 
     # lambda function for return compound value of list
-    def compound_number(a, b): return a+b
+    compound_number=lambda a, b: a+b
     # calling function and passing above lamda function
     print("Compounded value:", num.compound_the_numbers(reduce_function=compound_number))
 
