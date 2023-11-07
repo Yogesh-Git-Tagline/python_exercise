@@ -3,6 +3,7 @@
 #Given list
 numbers = [2, 5, 6, 1, 3, 8, 9, 10,45,67,34]
 
+#i use bubble sort algorithm to sort this list
 #both loops iterate over numbers-list
 for i in range(len(numbers)):           #this loop iterating by length of number list
     for j in range(i+1,len(numbers)):   #this loop iterating by incresing value of i to len of list
