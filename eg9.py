@@ -12,7 +12,7 @@ end = datetime.strptime(end_time, "%H:%M:%S:%p")
 
 time = end - start     #it substract the start_time from end_time
 
-#then can see differance between both time by hourse,minutes and seconds
+#then can see differance between both time by hourse,minutes and  seconds
 print("Time difference is=")
 
 hourse=time.total_seconds()/3600    #it calculates the hourse
